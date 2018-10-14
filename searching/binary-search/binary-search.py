@@ -4,24 +4,22 @@ import profile
 # Iterative solution for binary search
 def binary_search(array, key):
     start, end = 0, len(array)-1
-
     while start <= end:
-        mid = (start + end)//2
-        
+        mid = (start + end)//2 
         if array[mid] < key:
             start = mid +1
         elif array[mid] > key:
             end = mid -1
         else:
-            return True
+            return True # probably key == mid here
     
-    return False
+    return False # if reached here, probably not found anything
 
 if __name__ == '__main__':
     print(binary_search(range(100000000000000000), 10000000111100000))
     profile.run('binary_search(range(100000000000000000), 10000000111100000)')
 
-# Benchmar
+# Benchmark
 # ❯ python3 binary-search/binary-search.py
 # True
 #          6 function calls in 0.014 seconds
